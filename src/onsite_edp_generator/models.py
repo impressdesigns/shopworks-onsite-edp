@@ -46,7 +46,7 @@ class OrderBlockModel(BaseModel):
     AddressState: str | None
     AddressZip: str | None
     AddressCountry: str | None
-    ShipMethod: str
+    ShipMethod: str | None
     sts_ShippingTaxableField: Literal[0, 1] | None
     cur_Shipping: float | None
     sts_Order_ShipAddress_Add: Literal[0, 1] | None
@@ -138,6 +138,8 @@ class DesignBlockModel(BaseModel):
     id_DesignType: int | None
     DesignName: str | None
 
+
+class DesignLocationBlockModel(BaseModel):
     # Location SubBlock
     Location: str
     ColorsTotal: int | None
@@ -229,3 +231,12 @@ class PaymentBlockModel(BaseModel):
     Card_Name_Last: str | None
     Card_Exp_Date: str | None
     Notes: str | None
+
+
+class EDPDocumentModel(BaseModel):
+    order: OrderBlockModel | None
+    customer: CustomerBlockModel | None
+    contact: ContactBlockModel | None
+    designs: list[tuple[DesignBlockModel, list[DesignLocationBlockModel]]] | None
+    products: ProductBlockModel | None
+    payment: PaymentBlockModel | None

@@ -1,6 +1,6 @@
 from typing import Final
 
-from onsite_edp_generator.models import PaymentBlockModel
+from onsite_edp_generator.models import EDPDocumentModel
 
 TAG_BRACKET: Final[str] = "----"
 DATA_SEPERATOR: Final[str] = ": "
@@ -36,9 +36,28 @@ def _build_block(block_name: str, data: dict[str, str | int | float | None]) -> 
     return block_text
 
 
+def build_document(data: dict[str, dict[str, str | int | float | None]]) -> str:
+    if not all(block.lower() in data for block in REQUIRED_BLOCKS):
+        raise ValueError("not all required blocks present")
+    document = ""
+    for block in VALID_BLOCKS:
+        if block.lower() in data and data[block.lower()] is not None:
+            document += _build_block(block, data[block.lower()])
+    return document
+
+
 if __name__ == '__main__':
-    payment_data = {
-        "date_Payment": "05/25/2000",
+    document_data = {
+        "order": {
+            "ExtOrderID": "TEST",
+            "date_External": "08/05/2022",
+            "id_OrderType": 1,
+            "date_OrderPlaced": "08/05/2022"
+        },
+        "customer": {
+            "id_Customer": 5547,
+        },
     }
-    payment_model = PaymentBlockModel(**payment_data).dict()
-    print(_build_block("Payment", payment_model))
+    document_model = EDPDocumentModel(**document_data).dict()
+    print(document_model)
+    print(build_document(document_model))
