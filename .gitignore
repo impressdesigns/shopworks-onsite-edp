@@ -1,0 +1,9 @@
+# JetBrains
+.idea
+
+# Cache
+__pycache__
+
+# PDM
+.pdm.toml
+__pypackages__
