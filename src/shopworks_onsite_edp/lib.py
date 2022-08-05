@@ -1,6 +1,6 @@
 from typing import Final
 
-from onsite_edp_generator.models import EDPDocumentModel
+from shopworks_onsite_edp.models import EDPDocumentModel
 
 TAG_BRACKET: Final[str] = "----"
 DATA_SEPERATOR: Final[str] = ": "
