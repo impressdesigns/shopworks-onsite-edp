@@ -7,16 +7,16 @@ DATA_SEPERATOR: Final[str] = ": "
 CARRIAGE_RETURN: Final[str] = "<cr>"
 
 REQUIRED_BLOCKS: Final[list[str]] = [
-    'Order',
-    'Customer',
+    "Order",
+    "Customer",
 ]
 VALID_BLOCKS: Final[list[str]] = [
-    'Order',
-    'Customer',
-    'Contact',
-    'Design',
-    'Products',
-    'Payment',
+    "Order",
+    "Customer",
+    "Contact",
+    "Design",
+    "Products",
+    "Payment",
 ]
 
 
@@ -46,13 +46,13 @@ def build_document(data: dict[str, dict[str, str | int | float | None]]) -> str:
     return document
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     document_data = {
         "order": {
             "ExtOrderID": "TEST",
             "date_External": "08/05/2022",
             "id_OrderType": 1,
-            "date_OrderPlaced": "08/05/2022"
+            "date_OrderPlaced": "08/05/2022",
         },
         "customer": {
             "id_Customer": 5547,

@@ -185,19 +185,19 @@ class ProductBlockModel(BaseModel):
     sts_UseSecondaryUnits: Literal[0, 1] | None
     Units_Qty: int
     Units_Type: Literal[
-                    'Linear Feet',
-                    'Linear Inches',
-                    'Linear Centimeters',
-                    'Linear Meters',
-                    'Linear Yards',
-                    'Square Feet',
-                    'Square Inches',
-                    'Square Yards',
-                    'Square Meters',
-                    'Square Centimeters',
-                    'Units',
-                    'Pieces',
-                    'Count',
+                    "Linear Feet",
+                    "Linear Inches",
+                    "Linear Centimeters",
+                    "Linear Meters",
+                    "Linear Yards",
+                    "Square Feet",
+                    "Square Inches",
+                    "Square Yards",
+                    "Square Meters",
+                    "Square Centimeters",
+                    "Units",
+                    "Pieces",
+                    "Count",
                 ] | None
     Units_Area1: int | None
     Units_Area2: int | None
