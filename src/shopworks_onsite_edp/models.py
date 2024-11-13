@@ -11,10 +11,10 @@ class OrderBlockModel(BaseModel):
     """Order Block Model."""
 
     # ID
-    external_order_id: str = Field(None, alias="ExtOrderID")
+    external_order_id: str | None = Field(None, alias="ExtOrderID")
     external_source: str | None = Field(None, alias="ExtSource")
-    date_external: str = Field(None, pattern=DATE_REGEX, alias="date_External")
-    order_type_id: int = Field(None, alias="id_OrderType")
+    date_external: str | None = Field(None, pattern=DATE_REGEX, alias="date_External")
+    order_type_id: int | None = Field(None, alias="id_OrderType")
 
     # Details
     customer_purchase_order: str | None = Field(None, alias="CustomerPurchaseOrder")
@@ -27,7 +27,7 @@ class OrderBlockModel(BaseModel):
     hold_order_text: Literal["Yes", "N"] | None = Field(None, alias="HoldOrderText")
 
     # Dates
-    date_order_placed: str = Field(None, pattern=DATE_REGEX, alias="date_OrderPlaced")
+    date_order_placed: str | None = Field(None, pattern=DATE_REGEX, alias="date_OrderPlaced")
     date_order_requested_to_ship: str | None = Field(None, pattern=DATE_REGEX, alias="date_OrderRequestedToShip")
     date_order_drop_dead: str | None = Field(None, pattern=DATE_REGEX, alias="date_OrderDropDead")
 
@@ -155,14 +155,14 @@ class DesignLocationBlockModel(BaseModel):
     """Design Location Block Model."""
 
     # Location
-    location: str = Field(None, alias="Location")
+    location: str | None = Field(None, alias="Location")
     total_colors: int | None = Field(None, alias="ColorsTotal")
     total_flashes: int | None = Field(None, alias="FlashesTotal")
     total_stitches: int | None = Field(None, alias="StitchesTotal")
     design_code: str | None = Field(None, alias="DesignCode")
 
     # Color
-    color: str = Field(None, alias="Color")
+    color: str | None = Field(None, alias="Color")
     map: str | None = Field(None, alias="Map")
 
 
@@ -170,19 +170,19 @@ class ProductBlockModel(BaseModel):
     """Product Block Model."""
 
     # Product
-    part_number: str = Field(None, alias="PartNumber")
+    part_number: str | None = Field(None, alias="PartNumber")
     part_color_range: str | None = Field(None, alias="PartColorRange")
     part_color: str | None = Field(None, alias="PartColor")
     part_description: str | None = Field(None, alias="PartDescription")
     cur_unit_price_user_entered: float | None = Field(None, alias="cur_UnitPriceUserEntered")
     order_instructions: str | None = Field(None, alias="OrderInstructions")
 
-    size1_required: int = Field(None, alias="Size01_Req")
-    size2_required: int = Field(None, alias="Size02_Req")
-    size3_required: int = Field(None, alias="Size03_Req")
-    size4_required: int = Field(None, alias="Size04_Req")
-    size5_required: int = Field(None, alias="Size05_Req")
-    size6_required: int = Field(None, alias="Size06_Req")
+    size1_required: int | None = Field(None, alias="Size01_Req")
+    size2_required: int | None = Field(None, alias="Size02_Req")
+    size3_required: int | None = Field(None, alias="Size03_Req")
+    size4_required: int | None = Field(None, alias="Size04_Req")
+    size5_required: int | None = Field(None, alias="Size05_Req")
+    size6_required: int | None = Field(None, alias="Size06_Req")
 
     status_production_product_override: Literal[0, 1] | None = Field(None, alias="sts_Prod_Product_Override")
     cur_unit_cost: float | None = Field(None, alias="cur_UnitCost")
@@ -199,7 +199,7 @@ class ProductBlockModel(BaseModel):
     # Secondary Units
     status_production_secondary_units_override: Literal[0, 1] | None = Field(None, alias="sts_Prod_SecondaryUnits_Override")
     status_use_secondary_units: Literal[0, 1] | None = Field(None, alias="sts_UseSecondaryUnits")
-    units_quantity: int = Field(None, alias="Units_Qty")
+    units_quantity: int | None = Field(None, alias="Units_Qty")
     units_type: (
         Literal[
             "Linear Feet",
@@ -244,7 +244,7 @@ class ProductBlockModel(BaseModel):
 class PaymentBlockModel(BaseModel):
     """Payment Block Model."""
 
-    date_payment: str = Field(None, pattern=DATE_REGEX, alias="date_Payment")
+    date_payment: str | None = Field(None, pattern=DATE_REGEX, alias="date_Payment")
     cur_payment: float | None = Field(None, alias="cur_Payment")
     payment_type: str | None = Field(None, alias="PaymentType")
     payment_number: str | None = Field(None, alias="PaymentNumber")

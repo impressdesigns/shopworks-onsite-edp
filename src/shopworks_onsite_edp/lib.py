@@ -64,3 +64,5 @@ if __name__ == "__main__":
         },
     }
     document_model = EDPDocumentModel(**document_data)
+    print(document_model.model_dump(by_alias=True))  # noqa: T201
+    print(build_document(document_model.model_dump(by_alias=True)))  # noqa: T201

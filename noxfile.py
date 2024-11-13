@@ -34,8 +34,9 @@ def tests(session: nox.Session) -> None:
 def lints(session: nox.Session) -> None:
     """Run lints."""
     session.run("pre-commit", "run", "--all-files")
-    session.run("ruff", "check", "--fix", ".")
     session.run("ruff", "format", ".")
+    session.run("ruff", "check", "--fix", ".")
+    session.run("mypy", "--strict", "src/")
 
 
 @nox.session
