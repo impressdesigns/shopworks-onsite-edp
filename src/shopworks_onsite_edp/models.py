@@ -13,7 +13,7 @@ class OrderBlockModel(BaseModel):
     # ID
     external_order_id: str = Field(None, alias="ExtOrderID")
     external_source: str | None = Field(None, alias="ExtSource")
-    date_external: str = Field(pattern=DATE_REGEX, alias="date_External")
+    date_external: str = Field(None, pattern=DATE_REGEX, alias="date_External")
     order_type_id: int = Field(None, alias="id_OrderType")
 
     # Details
@@ -27,7 +27,7 @@ class OrderBlockModel(BaseModel):
     hold_order_text: Literal["Yes", "N"] | None = Field(None, alias="HoldOrderText")
 
     # Dates
-    date_order_placed: str = Field(pattern=DATE_REGEX, alias="date_OrderPlaced")
+    date_order_placed: str = Field(None, pattern=DATE_REGEX, alias="date_OrderPlaced")
     date_order_requested_to_ship: str | None = Field(None, pattern=DATE_REGEX, alias="date_OrderRequestedToShip")
     date_order_drop_dead: str | None = Field(None, pattern=DATE_REGEX, alias="date_OrderDropDead")
 
@@ -244,7 +244,7 @@ class ProductBlockModel(BaseModel):
 class PaymentBlockModel(BaseModel):
     """Payment Block Model."""
 
-    date_payment: str = Field(pattern=DATE_REGEX, alias="date_Payment")
+    date_payment: str = Field(None, pattern=DATE_REGEX, alias="date_Payment")
     cur_payment: float | None = Field(None, alias="cur_Payment")
     payment_type: str | None = Field(None, alias="PaymentType")
     payment_number: str | None = Field(None, alias="PaymentNumber")
