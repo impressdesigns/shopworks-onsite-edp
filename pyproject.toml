@@ -50,6 +50,11 @@ ignore = [
     "CPY001", # (Missing copyright notice at top of file) - No license
 ]
 
+[tool.ruff.lint.extend-per-file-ignores]
+"docs/*" = [
+    "INP001", # (File `docs/conf.py` is part of an implicit namespace package. Add an `__init__.py`.) - Docs are not modules
+]
+
 [tool.ruff.lint.isort]
 known-first-party = ["core"]
 
