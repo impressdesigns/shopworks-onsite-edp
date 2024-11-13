@@ -1,3 +1,5 @@
+"""Library for the EDP document."""
+
 from typing import Final
 
 from shopworks_onsite_edp.models import EDPDocumentModel
@@ -22,7 +24,8 @@ VALID_BLOCKS: Final[list[str]] = [
 
 def _build_block(block_name: str, data: dict[str, str | int | float | None]) -> str:
     if block_name not in VALID_BLOCKS:
-        raise ValueError("invalid block")
+        msg = "invalid block"
+        raise ValueError(msg)
 
     block_text = ""
     block_text += f"{TAG_BRACKET} Start {block_name} {TAG_BRACKET}\n"
@@ -37,8 +40,10 @@ def _build_block(block_name: str, data: dict[str, str | int | float | None]) -> 
 
 
 def build_document(data: dict[str, dict[str, str | int | float | None]]) -> str:
+    """Build the document from the data."""
     if not all(block.lower() in data for block in REQUIRED_BLOCKS):
-        raise ValueError("not all required blocks present")
+        msg = "not all required blocks present"
+        raise ValueError(msg)
     document = ""
     for block in VALID_BLOCKS:
         if block.lower() in data and data[block.lower()] is not None:
@@ -49,7 +54,7 @@ def build_document(data: dict[str, dict[str, str | int | float | None]]) -> str:
 if __name__ == "__main__":
     document_data = {
         "order": {
-            "ExtOrderID": "TEST",
+            "external_order_id": "TEST",
             "date_External": "08/05/2022",
             "id_OrderType": 1,
             "date_OrderPlaced": "08/05/2022",
@@ -58,6 +63,4 @@ if __name__ == "__main__":
             "id_Customer": 5547,
         },
     }
-    document_model = EDPDocumentModel(**document_data).dict()
-    print(document_model)
-    print(build_document(document_model))
+    document_model = EDPDocumentModel(**document_data)
