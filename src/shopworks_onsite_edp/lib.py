@@ -2,8 +2,6 @@
 
 from typing import Final
 
-from shopworks_onsite_edp.models import CustomerBlockModel, EDPDocumentModel, OrderBlockModel
-
 TAG_BRACKET: Final[str] = "----"
 DATA_SEPERATOR: Final[str] = ": "
 CARRIAGE_RETURN: Final[str] = "<cr>"
@@ -42,19 +40,3 @@ def build_document(data: dict[str, dict[str, str | int | float | None]]) -> str:
         if block.lower() in data and data[block.lower()] is not None:
             document += _build_block(block, data[block.lower()])
     return document
-
-
-if __name__ == "__main__":
-    edp_document = EDPDocumentModel(
-        order=OrderBlockModel(
-            external_order_id="TEST",
-            date_external="08/05/2022",
-            order_type_id=1,
-            date_order_placed="08/05/2022",
-        ),
-        customer=CustomerBlockModel(
-            customer_id=1,
-        ),
-    )
-    print(edp_document.model_dump(by_alias=True))  # noqa: T201
-    print(build_document(edp_document.model_dump(by_alias=True)))  # noqa: T201
