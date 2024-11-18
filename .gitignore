@@ -1,9 +1,9 @@
-# JetBrains
-.idea
+# Packaging
+*.egg-info
+dist
 
 # Cache
 __pycache__
 
-# PDM
-.pdm.toml
-__pypackages__
+# Docs
+docs/build
