@@ -254,7 +254,7 @@ Product block fields
 Payment block fields
 --------------------
 
-..  csv-table:: Payment block fields
+..  csv-table:: Payment SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
 
     "``date_Payment``", "Date", "Yes", "No", "Date can be in 2 or 4 year format \"mm/dd/yy\" or \"mm/dd/yyyy\""
