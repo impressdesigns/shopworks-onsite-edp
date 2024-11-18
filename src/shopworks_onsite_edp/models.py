@@ -121,10 +121,10 @@ class CustomerBlockModel(BaseModel):
     custom_field_4: str | None = Field(None, serialization_alias="CustomField04")
     custom_field_5: str | None = Field(None, serialization_alias="CustomField05")
     custom_field_6: str | None = Field(None, serialization_alias="CustomField06")
-    custom_field_7: str | None = Field(None, serialization_alias="CustomField07")
-    custom_field_8: str | None = Field(None, serialization_alias="CustomField08")
-    custom_field_9: str | None = Field(None, serialization_alias="CustomField09")
-    custom_field_10: str | None = Field(None, serialization_alias="CustomField10")
+    custom_field_7: str | None = Field(None, pattern=DATE_REGEX, serialization_alias="CustomField07")
+    custom_field_8: str | None = Field(None, pattern=DATE_REGEX, serialization_alias="CustomField08")
+    custom_field_9: str | None = Field(None, pattern=DATE_REGEX, serialization_alias="CustomField09")
+    custom_field_10: str | None = Field(None, pattern=DATE_REGEX, serialization_alias="CustomField10")
 
 
 class ContactBlockModel(BaseModel):
