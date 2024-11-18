@@ -7,6 +7,12 @@ Module Index
 ------------
 
 .. toctree::
+   :caption: ShopWorks:
+   :maxdepth: 1
+
+   field-list
+
+.. toctree::
    :maxdepth: 1
 
    autoapi/index
