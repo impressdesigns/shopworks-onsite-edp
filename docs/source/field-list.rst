@@ -1,7 +1,7 @@
 Fields
 ======
 
-Environment variables used by the software.
+List of fields that can be used in the EDP Document.
 
 Order block fields
 ------------------
