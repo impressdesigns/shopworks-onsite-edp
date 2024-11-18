@@ -31,8 +31,8 @@ Order block fields
 
     "``date_OrderPlaced``", "Date", "Yes", "No", "Date can be in 2 or 4 year format \"mm/dd/yy\" or \"mm/dd/yyyy\""
     "``date_OrderRequestedToShip``", "Date", "No", "No", "Date can be in 2 or 4 year format \"mm/dd/yy\" or \"mm/dd/yyyy\""
-    "``date_OrderDropDead``", "Date", "No", "No", "Date can be in 2 or 4 year format \"mm/dd/yy\" or \"mm/dd/yyyy\""           
-  
+    "``date_OrderDropDead``", "Date", "No", "No", "Date can be in 2 or 4 year format \"mm/dd/yy\" or \"mm/dd/yyyy\""
+
 ..  csv-table:: Sales Tax SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
 
@@ -74,8 +74,8 @@ Order block fields
     "``NotesToShipping``", "Text", "No", "Yes", "Notes to the shipping department."
     "``NotesToAccounting``", "Text", "No", "Yes", "Notes to the accounting department."
     "``NotesToPurchasingSub``", "Text", "No", "Yes", "Notes to the subcontract purchasing department."
-  
- 
+
+
 Customer block fields
 ---------------------
 
@@ -100,7 +100,7 @@ Customer block fields
     "``AddressCity``", "Text", "No", "Yes", "Billing address city."
     "``AddressState``", "Text", "No", "Yes", "Billing address state or province."
     "``AddressZip``", "Text", "No", "Yes", "Billing address zip or postal code."
-    "``AddressCountry``", "Text", "No", "No", "Billing address country."    
+    "``AddressCountry``", "Text", "No", "No", "Billing address country."
 
 ..  csv-table:: Sales Tax SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
@@ -113,15 +113,15 @@ Customer block fields
     "``coa_AccountSalesTax02``", "Text", "No", "No", "Default value for new orders created for this Customer.  Values should match OnSite 7 General Ledger sales tax code."
     "``coa_AccountSalesTax03``", "Text", "No", "No", "Default value for new orders created for this Customer.  Values should match OnSite 7 General Ledger sales tax code."
     "``coa_AccountSalesTax04``", "Text", "No", "No", "Default value for new orders created for this Customer.  Values should match OnSite 7 General Ledger sales tax code."
-    "``TaxExemptNumber``", "Text", "No", "Yes", "Tax exemption certificate number."  
-  
+    "``TaxExemptNumber``", "Text", "No", "Yes", "Tax exemption certificate number."
+
 ..  csv-table:: Price Calculator SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
 
     "``id_DiscountLevel``", "Number", "No", "No", "Defines discount level for the customer.  Value must match OnSite value list."
     "``id_DefaultCalculator1``", "Text", "No", "No", "Default print price calculator defined for this customer.  Value must match OnSite print price calculator value list."
     "``id_DefaultCalculator2``", "Text", "No", "No", "Default embroidery price calculator defined for this customer.  Value must match OnSite print price calculator value list."
-    
+
 ..  csv-table:: Profile SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
 
@@ -132,7 +132,7 @@ Customer block fields
     "``SICCode``", "Text", "No", "Yes", "Industry code for the customer."
     "``SICDescription``", "Text", "No", "Yes", "Industry code description for the customer."
     "``n_EmployeeCount``", "Number", "No", "No", "Number of employees for this customer"
-  
+
 ..  csv-table:: Custom Fields SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
 
@@ -174,7 +174,7 @@ Design block fields
     "``id_Design``", "Number", "No", "Yes", "Used to define an existing design.  If used, must match a design record in the Users OnSite system."
     "``id_DesignType``", "Number", "Yes", "No", "Used to define the type of design.  If used, must match the value list from the Users OnSite system."
     "``Design Name``", "Text", "Yes", "Yes", "Design title."
-  
+
 ..  csv-table:: Location SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
 
@@ -183,13 +183,13 @@ Design block fields
     "``FlashesTotal``", "Number", "No", "No", "Total number of flashes used for print price calculations."
     "``StitchesTotal``", "Number", "No", "No", "Total number of stitches used for embroidery price calculations."
     "``DesignCode``", "Text", "No", "Yes", "Secondary Design ID for each Location.  Used for reference only."
-  
+
 ..  csv-table:: Color SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
 
     "``Color``", "Text", "Yes", "No", "At least one Color is required for each design."
-    "``Map``", "Text", "No", "Yes", "Description of Map for Location for embellishment.  Typically used for Embroidery Design Types to describe what areas get what thread colors."    
-  
+    "``Map``", "Text", "No", "Yes", "Description of Map for Location for embellishment.  Typically used for Embroidery Design Types to describe what areas get what thread colors."
+
 
 Product block fields
 --------------------
@@ -221,7 +221,7 @@ Product block fields
     "``sts_EnableTax01``", "Number, Boolean", "No", "No", "If set to 1, Product is taxable to the coa_AccountSalesTax01 on the sales order.  If set to 0 or is empty, non taxable for coa_AccountSalesTax01 on the sales order."
     "``sts_EnableTax02``", "Number, Boolean", "No", "No", "If set to 1, Product is taxable to the coa_AccountSalesTax02 on the sales order.  If set to 0 or is empty, non taxable for coa_AccountSalesTax02 on the sales order."
     "``sts_EnableTax03``", "Number, Boolean", "No", "No", "If set to 1, Product is taxable to the coa_AccountSalesTax03 on the sales order.  If set to 0 or is empty, non taxable for coa_AccountSalesTax03 on the sales order."
-    "``sts_EnableTax04``", "Number, Boolean", "No", "No", "If set to 1, Product is taxable to the coa_AccountSalesTax04 on the sales order.  If set to 0 or is empty, non taxable for coa_AccountSalesTax04 on the sales order."      
+    "``sts_EnableTax04``", "Number, Boolean", "No", "No", "If set to 1, Product is taxable to the coa_AccountSalesTax04 on the sales order.  If set to 0 or is empty, non taxable for coa_AccountSalesTax04 on the sales order."
 
 ..  csv-table:: Secondary Units SubBlock
     :header: "Field Name", "Field Type", "Required", "Carriage Returns", "Comments"
