@@ -3,14 +3,16 @@ shopworks-onsite-edp
 
 ShopWorks OnSite EDP generator
 
-Module Index
-------------
+ShopWorks Docs
+--------------
 
 .. toctree::
-   :caption: ShopWorks:
    :maxdepth: 1
 
    field-list
+
+Module Index
+------------
 
 .. toctree::
    :maxdepth: 1
