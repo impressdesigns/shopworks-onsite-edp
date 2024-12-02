@@ -7,8 +7,8 @@ from pydantic import BaseModel, Field
 DATE_REGEX = "[0-9]{2}/[0-9]{2}/[0-9]{4}|[0-9]{2}"
 
 
-class OrderBlockModel(BaseModel):
-    """Order Block Model."""
+class Order(BaseModel):
+    """Order Block."""
 
     # ID
     external_order_id: str = Field(serialization_alias="ExtOrderID")
@@ -67,8 +67,8 @@ class OrderBlockModel(BaseModel):
     notes_to_purchasing_sub: str | None = Field(None, serialization_alias="NotesToPurchasingSub")
 
 
-class CustomerBlockModel(BaseModel):
-    """Customer Block Model."""
+class Customer(BaseModel):
+    """Customer Block."""
 
     # Details
     external_customer_id: str | None = Field(None, serialization_alias="ExtCustomerID")
@@ -127,8 +127,8 @@ class CustomerBlockModel(BaseModel):
     custom_field_10: str | None = Field(None, pattern=DATE_REGEX, serialization_alias="CustomField10")
 
 
-class ContactBlockModel(BaseModel):
-    """Contact Block Model."""
+class Contact(BaseModel):
+    """Contact Block."""
 
     first_name: str | None = Field(None, serialization_alias="NameFirst")
     last_name: str | None = Field(None, serialization_alias="NameLast")
@@ -141,8 +141,8 @@ class ContactBlockModel(BaseModel):
     status_contact_add: Literal[0, 1] | None = Field(None, serialization_alias="sts_Contact_Add")
 
 
-class DesignBlockModel(BaseModel):
-    """Design Block Model."""
+class Design(BaseModel):
+    """Design Block."""
 
     # Design
     external_design_id: str | None = Field(None, serialization_alias="ExtDesignID")
@@ -151,8 +151,8 @@ class DesignBlockModel(BaseModel):
     design_name: str | None = Field(None, serialization_alias="DesignName")
 
 
-class DesignLocationBlockModel(BaseModel):
-    """Design Location Block Model."""
+class DesignLocation(BaseModel):
+    """Design Location Block."""
 
     # Location
     location: str = Field(serialization_alias="Location")
@@ -166,8 +166,8 @@ class DesignLocationBlockModel(BaseModel):
     map: str | None = Field(None, serialization_alias="Map")
 
 
-class ProductBlockModel(BaseModel):
-    """Product Block Model."""
+class Product(BaseModel):
+    """Product Block."""
 
     # Product
     part_number: str = Field(serialization_alias="PartNumber")
@@ -244,8 +244,8 @@ class ProductBlockModel(BaseModel):
     status_invoicing_invoice: Literal[0, 1] | None = Field(None, serialization_alias="sts_Invoicing_Invoice")
 
 
-class PaymentBlockModel(BaseModel):
-    """Payment Block Model."""
+class Payment(BaseModel):
+    """Payment Block."""
 
     date_payment: str = Field(pattern=DATE_REGEX, serialization_alias="date_Payment")
     cur_payment: float | None = Field(None, serialization_alias="cur_Payment")
@@ -257,12 +257,12 @@ class PaymentBlockModel(BaseModel):
     notes: str | None = Field(None, serialization_alias="Notes")
 
 
-class EDPDocumentModel(BaseModel):
-    """EDP Document Model."""
+class EDPDocument(BaseModel):
+    """EDP Document."""
 
-    order: OrderBlockModel
-    customer: CustomerBlockModel
-    contact: ContactBlockModel | None = Field(None)
-    designs: list[tuple[DesignBlockModel, list[DesignLocationBlockModel]]] | None = Field(None)
-    products: ProductBlockModel | None = Field(None)
-    payment: PaymentBlockModel | None = Field(None)
+    order: Order
+    customer: Customer
+    contact: Contact | None = Field(None)
+    designs: list[tuple[Design, list[DesignLocation]]] | None = Field(None)
+    products: Product | None = Field(None)
+    payment: Payment | None = Field(None)

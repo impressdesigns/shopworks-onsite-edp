@@ -1,23 +1,23 @@
 """ShopWorks OnSite EDP generation."""
 
 from .models import (
-    ContactBlockModel,
-    CustomerBlockModel,
-    DesignBlockModel,
-    DesignLocationBlockModel,
-    EDPDocumentModel,
-    OrderBlockModel,
-    PaymentBlockModel,
-    ProductBlockModel,
+    Contact,
+    Customer,
+    Design,
+    DesignLocation,
+    EDPDocument,
+    Order,
+    Payment,
+    Product,
 )
 
 __all__ = [
-    "EDPDocumentModel",
-    "OrderBlockModel",
-    "CustomerBlockModel",
-    "ContactBlockModel",
-    "DesignBlockModel",
-    "ProductBlockModel",
-    "PaymentBlockModel",
-    "DesignLocationBlockModel",
+    "EDPDocument",
+    "Order",
+    "Customer",
+    "Contact",
+    "Design",
+    "Product",
+    "Payment",
+    "DesignLocation",
 ]
