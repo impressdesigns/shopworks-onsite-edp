@@ -13,7 +13,7 @@ class Serializer:
 
     def build_document(self, document: EDPDocument) -> str:
         """Build the document from the data."""
-        data = document.model_dump(by_alias=True)
+        data = document.model_dump(by_alias=True, exclude_unset=True)
         text = ""
 
         for block_name in data:
@@ -21,8 +21,7 @@ class Serializer:
             block_text += f"{self.tag_bracket} Start {block_name.title()} {self.tag_bracket}\n"
 
             for key, value in data[block_name].items():
-                if value is not None:
-                    block_text += f"{key}{self.data_seperator}{value}\n"
+                block_text += f"{key}{self.data_seperator}{value}\n"
 
             block_text += f"{self.tag_bracket} End {block_name.title()} {self.tag_bracket}\n"
 
