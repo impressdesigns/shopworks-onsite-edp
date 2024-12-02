@@ -15,7 +15,7 @@ repos:
         exclude: .devcontainer/devcontainer-lock.json
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.4.30
+    rev: 0.5.5
     hooks:
       - id: uv-lock
       - id: uv-export
@@ -29,5 +29,6 @@ repos:
           - --frozen
           - --no-emit-project
           - --all-extras
-          - --output-file=requirements-dev.txt
+          - --all-groups
+          - --output-file=requirements-dependabot.txt
         files: pyproject.toml|uv.lock
