@@ -1,7 +1,7 @@
 """Test models."""
 
-from shopworks_onsite_edp.lib import build_document
-from shopworks_onsite_edp.models import CustomerBlockModel, EDPDocumentModel, OrderBlockModel
+from onsite_edp_sdk.lib import build_document
+from onsite_edp_sdk.models import CustomerBlockModel, EDPDocumentModel, OrderBlockModel
 
 
 def test_can_create_order() -> None:
