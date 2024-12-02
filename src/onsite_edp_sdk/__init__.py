@@ -10,6 +10,7 @@ from .models import (
     Payment,
     Product,
 )
+from .serializer import Serializer
 
 __all__ = [
     "EDPDocument",
@@ -20,4 +21,5 @@ __all__ = [
     "Product",
     "Payment",
     "DesignLocation",
+    "Serializer",
 ]

@@ -1,7 +1,6 @@
 """Test models."""
 
-from onsite_edp_sdk.lib import build_document
-from onsite_edp_sdk.models import Customer, EDPDocument, Order
+from onsite_edp_sdk import Customer, EDPDocument, Order, Serializer
 
 
 def test_can_create_order() -> None:
@@ -17,4 +16,4 @@ def test_can_create_order() -> None:
             customer_id=1,
         ),
     )
-    build_document(edp_document.model_dump(by_alias=True))
+    Serializer().build_document(edp_document)
