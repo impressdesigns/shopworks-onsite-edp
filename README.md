@@ -1,4 +1,4 @@
-# shopworks-onsite-edp
+# ShopWorks OnSite EDP generator
 
 ShopWorks OnSite EDP generator
 
