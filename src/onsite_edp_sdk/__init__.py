@@ -13,13 +13,13 @@ from .models import (
 from .serializer import Serializer
 
 __all__ = [
+    "Contact",
+    "Customer",
+    "Design",
+    "DesignLocation",
     "EDPDocument",
     "Order",
-    "Customer",
-    "Contact",
-    "Design",
-    "Product",
     "Payment",
-    "DesignLocation",
+    "Product",
     "Serializer",
 ]
