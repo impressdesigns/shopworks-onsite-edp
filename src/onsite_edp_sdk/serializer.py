@@ -1,4 +1,4 @@
-"""Library for the EDP document."""
+"""Serializer module."""
 
 from .models import EDPDocument
 
@@ -12,7 +12,7 @@ class Serializer:
         self.carriage_return = carriage_return
 
     def build_document(self, document: EDPDocument) -> str:
-        """Build the document from the data."""
+        """Serialize to text."""
         data = document.model_dump(by_alias=True, exclude_unset=True)
         text = ""
 

@@ -4,7 +4,7 @@ from onsite_edp_sdk import Customer, EDPDocument, Order, Serializer
 
 
 def test_can_create_order() -> None:
-    """Can't access protected endpoints without all required scopes."""
+    """Sanity check."""
     edp_document = EDPDocument(
         order=Order(
             external_order_id="TEST",

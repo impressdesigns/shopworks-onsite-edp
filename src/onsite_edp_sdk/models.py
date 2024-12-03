@@ -1,4 +1,4 @@
-"""Models."""
+"""Blocks used by the EDP Document."""
 
 from typing import Literal
 
