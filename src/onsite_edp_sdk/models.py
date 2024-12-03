@@ -266,3 +266,21 @@ class EDPDocument(BaseModel):
     designs: list[tuple[Design, list[DesignLocation]]] | None = Field(None)
     products: Product | None = Field(None)
     payment: Payment | None = Field(None)
+
+    def to_edp(self, tag_bracket: str = "----", data_seperator: str = ": ", _carriage_return: str = "<cr>") -> str:
+        """Serialize to EDP format."""
+        data = self.model_dump(by_alias=True, exclude_unset=True)
+        text = ""
+
+        for block_name in data:
+            block_text = ""
+            block_text += f"{tag_bracket} Start {block_name.title()} {tag_bracket}\n"
+
+            for key, value in data[block_name].items():
+                block_text += f"{key}{data_seperator}{value}\n"
+
+            block_text += f"{tag_bracket} End {block_name.title()} {tag_bracket}\n"
+
+            text += block_text
+
+        return text
