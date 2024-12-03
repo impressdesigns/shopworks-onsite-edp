@@ -10,7 +10,6 @@ from .models import (
     Payment,
     Product,
 )
-from .serializer import Serializer
 
 __all__ = [
     "Contact",
@@ -21,5 +20,4 @@ __all__ = [
     "Order",
     "Payment",
     "Product",
-    "Serializer",
 ]

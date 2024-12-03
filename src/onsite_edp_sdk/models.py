@@ -2,7 +2,7 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, SerializationInfo, model_serializer
 
 DATE_REGEX = "[0-9]{2}/[0-9]{2}/[0-9]{4}|[0-9]{2}"
 
@@ -266,3 +266,27 @@ class EDPDocument(BaseModel):
     designs: list[tuple[Design, list[DesignLocation]]] | None = Field(None)
     products: Product | None = Field(None)
     payment: Payment | None = Field(None)
+
+    @model_serializer(when_used="json")
+    def ser_model(self, info: SerializationInfo) -> str:
+        """Serialize to text."""
+        context = info.context or {}
+        tag_bracket = context.get("tag_bracket", "----")
+        data_seperator = context.get("data_seperator", ": ")
+        _carriage_return = context.get("carriage_return", "<cr>")
+
+        data = self.model_dump(by_alias=True, exclude_unset=True, mode="python")  # type: ignore[call-arg]
+        text = ""
+
+        for block_name in data:
+            block_text = ""
+            block_text += f"{tag_bracket} Start {block_name.title()} {tag_bracket}\n"
+
+            for key, value in data[block_name].items():
+                block_text += f"{key}{data_seperator}{value}\n"
+
+            block_text += f"{tag_bracket} End {block_name.title()} {tag_bracket}\n"
+
+            text += block_text
+
+        return text
